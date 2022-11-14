@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <exception>
 
 // Implementa o Jogo da Vida de John Conway.
 // https://pt.wikipedia.org/wiki/Jogo_da_vida
@@ -45,7 +46,7 @@ class ExcecaoCelulaInvalida : public std::exception{
    public:
       ExcecaoCelulaInvalida(int i, int j):
       _i(i), _j(j), error("Célula (-1, 0) não é válida. Deseja continuar e ignorá-la? (s/n)?") {}
-      const char* what() {
+      virtual const char* what() const noexcept {
          return error.c_str();
       }
 };

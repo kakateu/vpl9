@@ -14,14 +14,14 @@ void JogoDaVida::Matar(int i, int j) {
   vivas_[i][j] = false;
 }
 void JogoDaVida::Reviver(int i, int j) {
-  if(i != number || j !=number){
-    throw ExcecaoCelulaInvalida();
-  }
-  else if(i <= 0 || j <= 0) {
-    throw ExcecaoCelulaInvalida();
+  // if(i != number || j !=number){
+  //   throw ExcecaoCelulaInvalida(i, j);
+  // }
+  if(i <= 0 || j <= 0) {
+    throw ExcecaoCelulaInvalida(i, j);
   }
   else if(i > (linhas()-1) || j > (colunas()-1)) {
-    throw ExcecaoCelulaInvalida();
+    throw ExcecaoCelulaInvalida(i, j);
   }
   else {
   vivas_[i][j] = true;
