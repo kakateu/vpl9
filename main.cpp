@@ -48,15 +48,15 @@ int main() {
   cin >> numero_de_colunas;
 
   JogoDaVida jogo(numero_de_linhas, numero_de_colunas);
-  int linha, coluna;
   try{
+    int linha, coluna;
     while (cin >> linha >> coluna) {
         jogo.Reviver(linha, coluna);
     }
   }catch(ExcecaoCelulaInvalida &e) {
     char t;
     do{
-      e.what();
+      cout << e.what();
       cin >> t;
       if(t == 's')
         continue;
