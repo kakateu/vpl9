@@ -8,8 +8,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::ostream;  // Tipo de dado que se pode passar para um "cout".
-using std::this_thread::sleep_for;  // Para a execução por x ms;
-using namespace std::chrono_literals;  // Necessário para poder escrever, e.g. 100ms.
+// using std::this_thread::sleep_for;  // Para a execução por x ms;
+// using namespace std::chrono_literals;  // Necessário para poder escrever, e.g. 100ms.
 
 // Sobrecarrega o operador << para ele poder imprimir o estado do JogoDaVida.
 ostream & operator << (ostream &out, JogoDaVida &t) {
@@ -71,7 +71,7 @@ int main() {
   for (int i = 0; i < numero_de_iteracoes; i++) {
     jogo.ExecutarProximaIteracao();
     cout << jogo << endl;
-    sleep_for(200ms);
+    // sleep_for(200ms);
   }
   return 0;
 }
