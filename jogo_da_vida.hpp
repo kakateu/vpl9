@@ -45,7 +45,7 @@ class ExcecaoCelulaInvalida : public std::exception{
       std::string error;
    public:
       ExcecaoCelulaInvalida(int i, int j):
-      _i(i), _j(j), error("Célula (" + std::to_string(i) + std::to_string(j) + ") não é válida. Deseja continuar e ignorá-la? (s/n)?") {}
+      _i(i), _j(j), error("Célula (" + std::to_string(i) + ", " + std::to_string(j) + ") não é válida. Deseja continuar e ignorá-la? (s/n)?") {}
       virtual const char* what() const noexcept {
          return error.c_str();
       }

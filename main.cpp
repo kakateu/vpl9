@@ -48,23 +48,27 @@ int main() {
   cin >> numero_de_colunas;
 
   JogoDaVida jogo(numero_de_linhas, numero_de_colunas);
-  try{
-    int linha, coluna;
-    while (cin >> linha >> coluna) {
-        jogo.Reviver(linha, coluna);
+  bool error = true;
+  do{
+    try{
+      int linha, coluna;
+      while (cin >> linha >> coluna) {
+          jogo.Reviver(linha, coluna);
+      }
+      error = false;
+    }catch(ExcecaoCelulaInvalida &e) {
+      char t = ' ';
+      do{
+        cout << e.what();
+        cin >> t;
+        if(t == 's')
+          continue;
+        if(t == 'n')
+          return 1;
+      }while(!(t == 's' || t == 'n'));
+      error=true;
     }
-  }catch(ExcecaoCelulaInvalida &e) {
-    char t;
-    do{
-      cout << e.what();
-      cin >> t;
-      if(t == 's')
-        continue;
-      if(t == 'n')
-        return 1;
-    }while(!(t == 's' || t == 'n'));
-  }
-
+  } while(error);
   cout << jogo << endl;
   
   // Executa o número esperado de iterações.
