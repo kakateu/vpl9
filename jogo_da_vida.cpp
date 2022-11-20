@@ -17,7 +17,7 @@ void JogoDaVida::Reviver(int i, int j) {
   // if(i != number || j !=number){
   //   throw ExcecaoCelulaInvalida(i, j);
   // }
-  if(i <= 0 || j <= 0) {
+  if(i < 0 || j < 0) {
     throw ExcecaoCelulaInvalida(i, j);
   }
   else if(i > (linhas()-1) || j > (colunas()-1)) {
